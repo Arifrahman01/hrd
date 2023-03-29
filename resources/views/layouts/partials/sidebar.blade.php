@@ -8,4 +8,9 @@
         <x-maz-sidebar-sub-item name="Alert" :link="route('components.alert')"></x-maz-sidebar-sub-item>
     </x-maz-sidebar-item>
 
+    <x-maz-sidebar-item name="Migration" icon="bi bi-stack">
+        <x-maz-sidebar-sub-item name="Barrier" :link="route('migration.barrier')"></x-maz-sidebar-sub-item>
+    </x-maz-sidebar-item>
+
+
 </x-maz-sidebar>

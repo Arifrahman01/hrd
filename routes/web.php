@@ -1,6 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\MigrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/dashboard');
 });
+
+
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
+
+
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -28,4 +34,14 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
             return view('admin.component.accordion');
         })->name('accordion');
     });
+
+    Route::controller(MigrationController::class)->group(function () {
+        Route::get('/migration/barrier', 'barrier')->name('migration.barrier');
+    });
+
+
+
+
+
+
 });
